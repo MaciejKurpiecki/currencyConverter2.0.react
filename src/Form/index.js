@@ -5,21 +5,18 @@ import { useState } from 'react';
 const Form = ({ button, footer }) => {
     const [inCurrency, setInCurrency] = useState(currencies[0].name);
     const [outCurrency, setOutCurrency] = useState(currencies[0].name);
-    const [amount, setAmount] = useState("");
+    const [amount, setAmount] = useState();
     const [result, setResult] = useState("N/A");
 
     const calculate = () => {
-        setResult(((amount * currencies.find(currency => currency.short === inCurrency).rate))
+        setResult(amount * currencies.find(currency => currency.short === inCurrency).rate
             /
             currencies.find(currency => currency.short === outCurrency).rate)
     };
-    const test = () => {
-        console.log(result)
-    }
+
     const onFormSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         calculate();
-        test();
     };
 
     return (
