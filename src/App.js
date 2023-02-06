@@ -5,14 +5,14 @@ import { Footer } from './Footer';
 
 function App() {
   return (
-    <body>
+    <main>
       <Form
         button={<Button />}
         footer={<Footer
           date={"February 06, 2023"}
         />}
       />
-    </body>
+    </main>
   );
 }
 
