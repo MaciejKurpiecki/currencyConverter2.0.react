@@ -1,0 +1,87 @@
+.form {
+    max-width: 800px;
+    max-height: 600px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "in in ou ou"
+        "in in ou ou"
+        "in in ou ou"
+        ". bt bt ."
+        ". ft ft .";
+    justify-content: center;
+    justify-items: stretch;
+    align-content: center;
+    margin: 100px auto;
+    padding: 20px;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 5px #000 solid;
+    border-radius: 25px;
+}
+
+.form__input {
+    grid-area: in;
+    display: grid;
+    align-content: start;
+    justify-items: stretch;
+}
+
+.form__output {
+    grid-area: ou;
+    display: grid;
+    align-content: start;
+    justify-items: stretch;
+}
+
+.form__fieldset {
+    border: 2px solid hsl(33, 60%, 50%);
+    border-radius: 25px;
+    text-align: center;
+}
+
+.form__legend {
+    border: 2px solid hsl(33, 60%, 50%);
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.form__inputField {
+    border: 2px solid hsl(33, 60%, 50%);
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form__inputField:hover {
+    border: 2px solid hsl(33, 60%, 50%);
+    background-color: hsla(33, 60%, 50%, 0.171);
+}
+
+.form__inputField:active {
+    border: 2px solid hsl(33, 60%, 50%);
+    background-color: hsla(33, 60%, 50%, 0.171);
+}
+
+.form__inputField:focus-visible {
+    border: 2px solid hsl(33, 60%, 50%);
+    background-color: hsla(33, 60%, 50%, 0.171);
+    outline: none;
+}
+
+@media(max-width: 650px) {
+    .form {
+        max-width: 650px;
+        max-height: 1000px;
+        margin: 50px 5%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "in in"
+            "in in"
+            "ou ou"
+            "ou ou"
+            "bt bt"
+            "ft ft";
+    }
+}
