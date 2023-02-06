@@ -1,7 +1,7 @@
 export const currencies = [
     {
         short: "PLN",
-        name: "Złoty poslki",
+        name: "Złoty polski",
         rate: 1,
     },
     {
