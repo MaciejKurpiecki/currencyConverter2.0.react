@@ -9,7 +9,7 @@ function App() {
       <Form
         button={<Button />}
         footer={<Footer
-          date={"November 20, 2022"}
+          date={"February 06, 2023"}
         />}
       />
     </body>
