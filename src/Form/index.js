@@ -7,19 +7,26 @@ const Form = ({ button, footer }) => {
     const [outCurrency, setOutCurrency] = useState(currencies[0].short);
     const [amount, setAmount] = useState(+"");
     const [result, setResult] = useState(+"");
+    const [outCurrencyShort, setOutCurrencyShort] = useState("");
 
     const calculate = () => {
         setResult(amount * currencies.find(currency => currency.short === inCurrency).rate
             /
             currencies.find(currency => currency.short === outCurrency).rate)
     };
+    const displayOutCurrencyShort = () => {
+        setOutCurrencyShort(
+            currencies.find(currency => currency.short === outCurrency).short
+        );
+    }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
         calculate();
+        displayOutCurrencyShort();
     };
 
-    const displayResult = result > 0 ? result.toFixed(2) : "N/A";
+    const displayResult = result > 0 ? `${result.toFixed(2)} ${outCurrencyShort}` : "N/A";
     return (
         <form
             className="form"
