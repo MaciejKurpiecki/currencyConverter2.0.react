@@ -1,6 +1,7 @@
 import { currencies } from '../currencies';
 import './style.css'
 import { useState } from 'react';
+import { Button } from '../Button';
 
 const Form = ({ button, footer }) => {
     const [inCurrency, setInCurrency] = useState(currencies[0].short);
@@ -26,7 +27,7 @@ const Form = ({ button, footer }) => {
     };
     const onFormSubmit = (event) => {
         event.preventDefault();
-        bindButton();
+        // bindButton();
     };
 
     const displayResult = result > 0 ? `${result.toFixed(2)} ${outCurrencyShort}` : "N/A";
@@ -111,7 +112,9 @@ const Form = ({ button, footer }) => {
                     </label>
                 </div>
             </fieldset>
-            {button}
+            <Button
+                functionClick={bindButton}
+            />
             {footer}
         </form>
     )

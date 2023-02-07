@@ -7,7 +7,6 @@ function App() {
   return (
     <main>
       <Form
-        button={<Button />}
         footer={<Footer
           date={"February 06, 2023"}
         />}
