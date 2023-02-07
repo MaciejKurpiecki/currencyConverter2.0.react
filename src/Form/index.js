@@ -20,10 +20,13 @@ const Form = ({ button, footer }) => {
         );
     }
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
+    const bindButton = () => {
         calculate();
         displayOutCurrencyShort();
+    };
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+        bindButton();
     };
 
     const displayResult = result > 0 ? `${result.toFixed(2)} ${outCurrencyShort}` : "N/A";
