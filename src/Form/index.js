@@ -3,10 +3,10 @@ import './style.css'
 import { useState } from 'react';
 
 const Form = ({ button, footer }) => {
-    const [inCurrency, setInCurrency] = useState(currencies[0].name);
-    const [outCurrency, setOutCurrency] = useState(currencies[0].name);
-    const [amount, setAmount] = useState();
-    const [result, setResult] = useState("N/A");
+    const [inCurrency, setInCurrency] = useState(currencies[0].short);
+    const [outCurrency, setOutCurrency] = useState(currencies[0].short);
+    const [amount, setAmount] = useState(+"");
+    const [result, setResult] = useState(+"");
 
     const calculate = () => {
         setResult(amount * currencies.find(currency => currency.short === inCurrency).rate
@@ -19,6 +19,7 @@ const Form = ({ button, footer }) => {
         calculate();
     };
 
+    const displayResult = result > 0 ? result.toFixed(2) : "N/A";
     return (
         <form
             className="form"
@@ -56,7 +57,7 @@ const Form = ({ button, footer }) => {
                             className="form__inputField"
                             name="inputAmount"
                             type="number"
-                            step="0.1"
+                            step="0.01"
                             autoFocus
                             value={amount}
                             onChange={({ target }) => setAmount(target.value)}
@@ -92,7 +93,11 @@ const Form = ({ button, footer }) => {
                         <p>
                             Output amount
                         </p>
-                        {result}
+                        <input
+                            className="form__inputField"
+                            readOnly
+                            value={displayResult}
+                        />
                     </label>
                 </div>
             </fieldset>
