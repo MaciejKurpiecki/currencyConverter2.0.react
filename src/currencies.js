@@ -1,7 +1,7 @@
 export const currencies = [
     {
         short: "PLN",
-        name: "Złoty polski",
+        name: "Polish Zloty",
         rate: 1,
     },
     {
@@ -11,12 +11,12 @@ export const currencies = [
     },
     {
         short: "USD",
-        name: "Dolar amerykański",
+        name: "United States Dollar",
         rate: 4.42728,
     },
     {
         short: "GBP",
-        name: "Funt brytyjski",
+        name: "Pound sterling",
         rate: 5.31765,
     },
 ]
