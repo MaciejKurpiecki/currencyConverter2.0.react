@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
+        "lt lt rt rt"
         "in in ou ou"
         "in in ou ou"
         "in in ou ou"
@@ -77,6 +78,7 @@
         margin: 50px 5%;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
+            "tt tt"
             "in in"
             "in in"
             "ou ou"
