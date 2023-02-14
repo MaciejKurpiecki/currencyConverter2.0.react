@@ -1,4 +1,4 @@
-.date {
+.displayDate {
     grid-area: rt;
     margin: 0;
     justify-self: end;
@@ -7,7 +7,7 @@
 }
 
 @media(max-width: 650px) {
-    .date {
+    .displayDate {
         grid-area: tt;
         justify-self: center;
     }

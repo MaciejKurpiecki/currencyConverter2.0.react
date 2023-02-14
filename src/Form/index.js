@@ -2,13 +2,13 @@ import { currencies } from '../currencies';
 import './style.css'
 import { useState } from 'react';
 import { Button } from '../Button';
-import { Date } from '../Date';
+import DisplayDate from '../Date';
 
 const Form = ({ footer }) => {
     const [inCurrency, setInCurrency] = useState(currencies[0].short);
     const [outCurrency, setOutCurrency] = useState(currencies[0].short);
-    const [amount, setAmount] = useState(+"");
-    const [result, setResult] = useState(+"");
+    const [amount, setAmount] = useState("");
+    const [result, setResult] = useState("");
     const [outCurrencyShort, setOutCurrencyShort] = useState("");
 
     const calculate = () => {
@@ -37,7 +37,7 @@ const Form = ({ footer }) => {
             className="form"
             onSubmit={onFormSubmit}
         >
-            <Date />
+            <DisplayDate />
             <fieldset className="form__fieldset form__input">
                 <legend className="form__legend">Input currency</legend>
                 <div>
