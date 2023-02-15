@@ -1,5 +1,18 @@
-# Demo
+# Currency Converter
+Currency converter is a tool used to calculate value of currencies. Tool has been written for training purpose.
+## Demo
 https://maciejkurpiecki.github.io/currencyConverter2.0.react/
+
+## Preview
+![image](/images/preview.jpg)
+
+## Technologies
+Following technologies and conventions has ben used:
+- ES6
+- React js
+- grid
+- BEM
+
 ## Available Scripts
 
 In the project directory, you can run:
