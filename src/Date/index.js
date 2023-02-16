@@ -15,7 +15,15 @@ const DisplayDate = () => {
     return (
         <p className="displayDate">Today: {date.toLocaleString(
             undefined,
-            { month: "long", weekday: "long", day: "2-digit", year: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
+            {
+                month: "long",
+                weekday: "long",
+                day: "2-digit",
+                year: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric"
+            }
         )}</p>
     )
 }
