@@ -3,14 +3,17 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 const DisplayDate = () => {
-    const [dateState, setDateState] = useState(new Date());
+    const [date, setDate] = useState(new Date());
 
     useEffect(() => {
-        setInterval(() => setDateState(new Date()), 1000);
+        const intervalId = setInterval(() => setDate(new Date()), 1000);
+        return () => {
+            clearInterval(intervalId);
+        };
     }, []);
 
     return (
-        <p className="displayDate">Today: {dateState.toLocaleString(
+        <p className="displayDate">Today: {date.toLocaleString(
             undefined,
             { month: "long", weekday: "long", day: "2-digit", year: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }
         )}</p>
