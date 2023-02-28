@@ -11,5 +11,4 @@ const Clock = () => {
         <p className="displayDate">Today: {formatClock(date)}</p>
     )
 }
-
 export default Clock;

@@ -9,6 +9,7 @@ export const useCurrentDate = () => {
             clearInterval(intervalId);
         };
     }, []);
+    
     const formatClock = () =>
         date.toLocaleString(
             undefined,
@@ -26,5 +27,4 @@ export const useCurrentDate = () => {
         date,
         formatClock,
     }
-
 };
