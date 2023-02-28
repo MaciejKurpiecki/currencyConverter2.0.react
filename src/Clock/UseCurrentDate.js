@@ -1,8 +1,6 @@
-import './style.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-const DisplayDate = () => {
+export const useCurrentDate = () => {
     const [date, setDate] = useState(new Date());
 
     useEffect(() => {
@@ -11,9 +9,8 @@ const DisplayDate = () => {
             clearInterval(intervalId);
         };
     }, []);
-
-    return (
-        <p className="displayDate">Today: {date.toLocaleString(
+    const formatClock = () =>
+        date.toLocaleString(
             undefined,
             {
                 month: "long",
@@ -24,8 +21,10 @@ const DisplayDate = () => {
                 minute: "numeric",
                 second: "numeric"
             }
-        )}</p>
-    )
-}
+        );
+    return {
+        date,
+        formatClock,
+    }
 
-export default DisplayDate;
+};

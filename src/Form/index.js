@@ -2,7 +2,7 @@ import { currencies } from '../currencies';
 import './style.css'
 import { useState } from 'react';
 import { Button } from '../Button';
-import DisplayDate from '../Date';
+import Clock from '../Clock';
 
 const Form = ({ footer }) => {
     const [inCurrency, setInCurrency] = useState(currencies[0].short);
@@ -37,7 +37,7 @@ const Form = ({ footer }) => {
             className="form"
             onSubmit={onFormSubmit}
         >
-            <DisplayDate />
+            <Clock />
             <fieldset className="form__fieldset form__input">
                 <legend className="form__legend">Input currency</legend>
                 <div>
