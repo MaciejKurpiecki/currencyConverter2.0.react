@@ -1,8 +1,9 @@
-import './style.css';
+import { StyledCalculateButton } from "./styled";
 
 export const CalculateButton = () => (
-    <button
-        className="button">Calculate result</button>
+    <StyledCalculateButton>
+        Calculate result
+    </StyledCalculateButton>
 );
 // -----For function on button click-----
 // export const CalculateButton = ({ functionClick }) => (
