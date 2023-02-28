@@ -16,7 +16,8 @@ export const StyledResetButton = styled.button`
 };
 
 &:active {
-    background-color: hsla(33, 60%, 50%, 0.63);
+    background-color: hsl(33, 60%, 50%);
+    filter: opacity(70%);
 };
 
 @media(max-width: 650px) 
