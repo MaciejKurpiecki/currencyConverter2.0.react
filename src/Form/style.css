@@ -9,6 +9,7 @@
         "in in ou ou"
         "in in ou ou"
         ".. bt bt .."
+        ".. rb rb .."
         ".. ft ft ..";
     justify-content: center;
     justify-items: stretch;
@@ -84,6 +85,7 @@
             "ou ou"
             "ou ou"
             "bt bt"
+            "rb rb"
             "ft ft";
     }
 }

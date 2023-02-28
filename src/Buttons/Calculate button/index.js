@@ -1,11 +1,11 @@
 import './style.css';
 
-export const Button = ({ functionClick }) => (
+export const CalculateButton = () => (
     <button
         className="button">Calculate result</button>
 );
 // -----For function on button click-----
-// export const Button = ({ functionClick }) => (
+// export const CalculateButton = ({ functionClick }) => (
 //     <button
 //         type='submit'
 //         onClick={functionClick}
