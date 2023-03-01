@@ -18,4 +18,7 @@ body {
   background-color: hsl(33, 30%, 50%);
   background-attachment: fixed;
   font-size: large;
+  display: flex;
+  justify-content: center;
+  min-width: fit-content;
 }
