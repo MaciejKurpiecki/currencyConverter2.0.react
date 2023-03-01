@@ -1,4 +1,5 @@
-import { StyledResetButton } from "./styled";
+// import { StyledResetButton } from "./styled";
+import { StyledButton } from "../stylej";
 
 export const ResetButton = ({ setAmount, setResult }) => {
     const resetForm = () => {
@@ -6,8 +7,8 @@ export const ResetButton = ({ setAmount, setResult }) => {
         setResult("");
     };
     return (
-        <StyledResetButton
+        <StyledButton reset
             onClick={resetForm}
-        >Reset</StyledResetButton>
+        >Reset</StyledButton>
     );
 };

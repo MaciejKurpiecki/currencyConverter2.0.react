@@ -1,9 +1,10 @@
-import { StyledCalculateButton } from "./styled";
+// import { StyledCalculateButton } from "./styled";
+import { StyledButton } from "../stylej";
 
 export const CalculateButton = () => (
-    <StyledCalculateButton>
+    <StyledButton calculate>
         Calculate result
-    </StyledCalculateButton>
+    </StyledButton>
 );
 // -----For function on button click-----
 // export const CalculateButton = ({ functionClick }) => (

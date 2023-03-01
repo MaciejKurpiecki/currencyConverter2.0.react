@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const StyledCalculateButton = styled.button`
- grid-area: bt;
-    border: 2px solid hsl(33, 60%, 50%);
+export const StyledButton = styled.button`
+     border: 2px solid hsl(33, 60%, 50%);
     padding: 5px;
     border-radius: 25px;
     font-size: larger;
@@ -23,4 +22,11 @@ export const StyledCalculateButton = styled.button`
     &:hover {
         transform: scale(1.1);
     }}
+
+    ${({ calculate }) => calculate && css`
+    grid-area: bt;
+    `};
+    ${({ reset }) => reset && css`
+    grid-area: rb;
+    `}
 `;
