@@ -1,5 +1,5 @@
-import './style.css';
 import { useCurrentDate } from './UseCurrentDate';
+import { StyledClock } from './styled';
 
 const Clock = () => {
     const {
@@ -8,7 +8,7 @@ const Clock = () => {
     } = useCurrentDate()
 
     return (
-        <p className="displayDate">Today: {formatClock(date)}</p>
+        <StyledClock>Today: {formatClock(date)}</StyledClock>
     )
 }
 export default Clock;
