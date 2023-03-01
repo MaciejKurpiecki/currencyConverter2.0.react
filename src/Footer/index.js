@@ -1,5 +1,5 @@
-import './style.css';
+import { StyledFooter } from "./styled"
 
 export const Footer = ({ date }) => (
-    <footer className="footer">Currency exchange rate as of: {date}</footer>
+    <StyledFooter className="footer">Currency exchange rate as of: {date}</StyledFooter>
 )
