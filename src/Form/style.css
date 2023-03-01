@@ -76,7 +76,7 @@
     .form {
         max-width: 650px;
         max-height: 1000px;
-        margin: 50px 5%;
+        margin: 20px 1%;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
             "tt tt"
