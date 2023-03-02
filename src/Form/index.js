@@ -1,5 +1,5 @@
 import { currencies } from '../currencies';
-import './style.css'
+import { StyledForm, StyledFieldset, StyledLegend, StyledInputField } from './styled';
 import { useState } from 'react';
 import { CalculateButton } from '../Buttons/Calculate button';
 import Clock from '../Clock';
@@ -36,20 +36,18 @@ const Form = ({ footer }) => {
 
 
     return (
-        <form
-            className="form"
+        <StyledForm
             onSubmit={onFormSubmit}
         >
             <Clock />
-            <fieldset className="form__fieldset form__input">
-                <legend className="form__legend">Input currency</legend>
+            <StyledFieldset Input>
+                <StyledLegend>Input currency</StyledLegend>
                 <div>
                     <label>
                         <p>
                             Select currency
                         </p>
-                        <select
-                            className="form__inputField"
+                        <StyledInputField as="select"
                             value={inCurrency}
                             onChange={({ target }) => setInCurrency(target.value)}
                         >
@@ -61,7 +59,7 @@ const Form = ({ footer }) => {
                                     {currency.name}
                                 </option>
                             )))}
-                        </select>
+                        </StyledInputField>
                     </label>
                 </div>
                 <div>
@@ -69,8 +67,7 @@ const Form = ({ footer }) => {
                         <p>
                             Input amount
                         </p>
-                        <input
-                            className="form__inputField"
+                        <StyledInputField
                             name="inputAmount"
                             type="number"
                             step="0.01"
@@ -80,16 +77,16 @@ const Form = ({ footer }) => {
                         />
                     </label>
                 </div>
-            </fieldset>
-            <fieldset className="form__fieldset form__output">
-                <legend className="form__legend">Output currency</legend>
+            </StyledFieldset>
+            <StyledFieldset Output>
+                <StyledLegend>Output currency</StyledLegend>
                 <div>
                     <label>
                         <p>
                             Select currency
                         </p>
-                        <select
-                            className="form__inputField"
+                        <StyledInputField
+                            as="select"
                             value={outCurrency}
                             onChange={({ target }) => setOutCurrency(target.value)}
                         >
@@ -101,7 +98,7 @@ const Form = ({ footer }) => {
                                     {currency.name}
                                 </option>
                             )))}
-                        </select>
+                        </StyledInputField>
                     </label>
                 </div>
                 <div>
@@ -109,14 +106,13 @@ const Form = ({ footer }) => {
                         <p>
                             Output amount
                         </p>
-                        <input
-                            className="form__inputField"
+                        <StyledInputField
                             readOnly
                             value={displayResult}
                         />
                     </label>
                 </div>
-            </fieldset>
+            </StyledFieldset>
             <CalculateButton
             // -----For function on click!-----
             // functionClick={bindButton}
@@ -126,7 +122,7 @@ const Form = ({ footer }) => {
                 setResult={setResult}
             />
             {footer}
-        </form>
+        </StyledForm>
     )
 }
 

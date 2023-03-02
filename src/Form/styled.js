@@ -1,5 +1,7 @@
-.form {
-    max-width: 800px;
+import styled, { css } from "styled-components";
+
+export const StyledForm = styled.form`
+   max-width: 800px;
     max-height: 600px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -20,60 +22,9 @@
     background-color: rgba(255, 255, 255, 0.9);
     border: 5px #000 solid;
     border-radius: 25px;
-}
 
-.form__input {
-    grid-area: in;
-    display: grid;
-    align-content: start;
-    justify-items: stretch;
-}
-
-.form__output {
-    grid-area: ou;
-    display: grid;
-    align-content: start;
-    justify-items: stretch;
-}
-
-.form__fieldset {
-    border: 2px solid hsl(33, 60%, 50%);
-    border-radius: 25px;
-    text-align: center;
-}
-
-.form__legend {
-    border: 2px solid hsl(33, 60%, 50%);
-    padding: 10px;
-    border-radius: 25px;
-}
-
-.form__inputField {
-    border: 2px solid hsl(33, 60%, 50%);
-    padding: 15px;
-    border-radius: 25px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.form__inputField:hover {
-    border: 2px solid hsl(33, 60%, 50%);
-    background-color: hsla(33, 60%, 50%, 0.171);
-}
-
-.form__inputField:active {
-    border: 2px solid hsl(33, 60%, 50%);
-    background-color: hsla(33, 60%, 50%, 0.171);
-}
-
-.form__inputField:focus-visible {
-    border: 2px solid hsl(33, 60%, 50%);
-    background-color: hsla(33, 60%, 50%, 0.171);
-    outline: none;
-}
-
-@media(max-width: 650px) {
-    .form {
+    @media(max-width: 650px) 
+    {
         max-width: 650px;
         max-height: 1000px;
         margin: 20px 1%;
@@ -88,4 +39,50 @@
             "rb rb"
             "ft ft";
     }
-}
+`;
+
+export const StyledFieldset = styled.fieldset`
+    border: 2px solid hsl(33, 60%, 50%);
+    border-radius: 25px;
+    text-align: center;
+    display: grid;
+    align-content: start;
+    justify-items: stretch;
+
+    ${({ Input }) => Input && css`
+    grid-area: in;
+    `};
+
+    ${({ Output }) => Output && css`
+    grid-area: ou;
+    `};
+`;
+
+export const StyledLegend = styled.legend`
+    border: 2px solid hsl(33, 60%, 50%);
+    padding: 10px;
+    border-radius: 25px;
+`;
+
+export const StyledInputField = styled.input`
+border: 2px solid hsl(33, 60%, 50%);
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 245px;
+
+    &:hover {
+    border: 2px solid hsl(33, 60%, 50%);
+    background-color: hsla(33, 60%, 50%, 0.171);}
+
+    &:active {
+    border: 2px solid hsl(33, 60%, 50%);
+    background-color: hsla(33, 60%, 50%, 0.171);
+    }
+    &:focus-visible {
+    border: 2px solid hsl(33, 60%, 50%);
+    background-color: hsla(33, 60%, 50%, 0.171);
+    outline: none;
+    }
+`;
