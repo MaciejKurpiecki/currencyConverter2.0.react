@@ -4,14 +4,15 @@ Currency converter is a tool used to calculate value of currencies. Tool has bee
 https://maciejkurpiecki.github.io/currencyConverter2.0.react/
 
 ## Preview
-![image](/images/preview.jpg)
+![image](src/images/preview.jpg)
 
 ## Technologies
-Following technologies and conventions has ben used:
+Used technologies and conventions:
 - ES6
 - React js
+- styled-components
 - grid
-- BEM
+
 
 ## Available Scripts
 
