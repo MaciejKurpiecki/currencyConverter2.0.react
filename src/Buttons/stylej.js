@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-     border: 2px solid hsl(33, 60%, 50%);
+    border: 2px solid ${({ theme }) => theme.colors.main};
     padding: 5px;
     border-radius: 25px;
     font-size: larger;
@@ -10,15 +10,14 @@ export const StyledButton = styled.button`
 
     &:hover{
         transition: 0.3s;
-    transform: scale(1.2);
+        transform: scale(1.2);
     };
 
     &:active{
-        background-color:hsl(33, 60%, 50%);
-        filter: opacity(70%);
+        background-color: ${({ theme }) => theme.colors.mainTransparent};
     };
 
-    @media(max-width: 650px) {
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     &:hover {
         transform: scale(1.1);
     }}
