@@ -23,9 +23,9 @@ export const StyledButton = styled.button`
     }}
 
     ${({ calculate }) => calculate && css`
-    grid-area: bt;
+        grid-area: bt;
     `};
     ${({ reset }) => reset && css`
-    grid-area: rb;
+        grid-area: rb;
     `}
 `;

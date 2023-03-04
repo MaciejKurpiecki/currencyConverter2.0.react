@@ -1,10 +1,10 @@
-import { useCurrentDate } from './UseCurrentDate';
+import { useCurrentDate } from './useCurrentDate';
 import { StyledClock } from './styled';
+import { formatClock } from './useCurrentDate';
 
 const Clock = () => {
     const {
         date,
-        formatClock
     } = useCurrentDate()
 
     return (

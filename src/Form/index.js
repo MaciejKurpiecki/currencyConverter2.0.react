@@ -1,9 +1,9 @@
 import { currencies } from '../currencies';
 import { StyledForm, StyledFieldset, StyledLegend, StyledInputField } from './styled';
 import { useState } from 'react';
-import { CalculateButton } from '../Buttons/Calculate button';
+import { CalculateButton } from '../Buttons/CalculateButton';
 import Clock from '../Clock';
-import { ResetButton } from '../Buttons/Reset button';
+import { ResetButton } from '../Buttons/ResetButton';
 
 const Form = ({ footer }) => {
     const [inCurrency, setInCurrency] = useState(currencies[0].short);
@@ -34,6 +34,10 @@ const Form = ({ footer }) => {
 
     const displayResult = result > 0 ? `${result.toFixed(2)} ${outCurrencyShort}` : "N/A";
 
+    const resetForm = () => {
+        setAmount("");
+        setResult("");
+    };
 
     return (
         <StyledForm
@@ -118,8 +122,7 @@ const Form = ({ footer }) => {
             // functionClick={bindButton}
             />
             <ResetButton
-                setAmount={setAmount}
-                setResult={setResult}
+                onClick={resetForm}
             />
             {footer}
         </StyledForm>

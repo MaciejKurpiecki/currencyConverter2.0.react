@@ -1,5 +1,4 @@
-// import { StyledCalculateButton } from "./styled";
-import { StyledButton } from "../stylej";
+import { StyledButton } from "../styled";
 
 export const CalculateButton = () => (
     <StyledButton calculate>
