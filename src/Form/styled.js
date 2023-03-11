@@ -70,7 +70,8 @@ export const StyledInputField = styled.input`
     border-radius: 25px;
     font-weight: bold;
     text-align: center;
-    max-width: 245px;
+    width: 245px;
+ 
 
     &:hover {
     border: 2px solid ${({ theme }) => theme.colors.main};
