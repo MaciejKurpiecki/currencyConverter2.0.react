@@ -1,9 +1,10 @@
-import { StyledForm, StyledFieldset, StyledLegend, StyledInputField } from './styled';
+import { StyledForm, StyledFieldset, StyledLegend, StyledInputField, StatusMessage } from './styled';
 import { useState } from 'react';
 import { CalculateButton } from '../Buttons/CalculateButton';
 import Clock from '../Clock';
 import { ResetButton } from '../Buttons/ResetButton';
 import { useRatesData } from '../useRatesData';
+// import LoadingSpinner from './Spinner';
 
 const Form = ({ footer }) => {
     const [inCurrency, setInCurrency] = useState("EUR");
@@ -54,9 +55,16 @@ const Form = ({ footer }) => {
         >
             <Clock />
             {status === "loading" ? (
-                "Loading..."
+                < StatusMessage >
+                    Loading
+                    {/* <LoadingSpinner /> */}
+                </StatusMessage>
+
             ) : status === "error" ? (
-                "Error"
+                < StatusMessage >
+                    Something went wrong. Please try again later.
+                </StatusMessage>
+
             ) : (
                 <>
                     <StyledFieldset Input>
@@ -140,9 +148,10 @@ const Form = ({ footer }) => {
                         onClick={resetForm}
                     />
                 </>
-            )}
+            )
+            }
             {footer}
-        </StyledForm>
+        </StyledForm >
     )
 }
 
