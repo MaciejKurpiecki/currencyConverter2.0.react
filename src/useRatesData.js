@@ -7,7 +7,7 @@ export const useRatesData = () => {
     useEffect(() => {
         const getRates = async () => {
             try {
-                const currencyUrl = "https://api.exchangerate.host/latest";
+                const currencyUrl = "https://ap2i.exchangerate.host/latest";
                 const response = await axios.get(currencyUrl);
 
                 setRatesData({
