@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { CalculateButton } from '../Buttons/CalculateButton';
 import Clock from '../Clock';
 import { ResetButton } from '../Buttons/ResetButton';
-import { useRatesData } from './useRatesData';
+import { useRatesData } from '../useRatesData';
 
 const Form = ({ footer }) => {
     const [inCurrency, setInCurrency] = useState("EUR");
