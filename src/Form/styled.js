@@ -87,8 +87,14 @@ export const StyledInputField = styled.input`
     outline: none;
     }
 `;
-export const StatusMessage = styled.div`
-text-align: center;
-padding-top: 20px;
-grid-area: in/in/ou/ou;
+export const StyledStatusMessage = styled.div`
+    padding-top: 20px;
+    grid-area: in/in/ou/ou;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`;
+export const FlexBreak = styled.div`
+    flex-basis: 100%;
+    height: 10px;
 `;

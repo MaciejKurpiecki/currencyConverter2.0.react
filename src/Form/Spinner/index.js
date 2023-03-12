@@ -1,8 +1,16 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import Spinner from 'react-bootstrap/Spinner';
+import { Oval } from "react-loader-spinner"
 
-export const LoadingSpinner = () => {
-    return (
-        <Spinner animation="border" variant="warning" />
-    );
-};
+export const Spinner = () => (
+    <Oval
+        height={100}
+        width={100}
+        color="green"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        ariaLabel='oval-loading'
+        secondaryColor="green"
+        strokeWidth={2}
+        strokeWidthSecondary={2}
+    />
+);

@@ -1,10 +1,10 @@
-import { StyledForm, StyledFieldset, StyledLegend, StyledInputField, StatusMessage } from './styled';
+import { StyledForm, StyledFieldset, StyledLegend, StyledInputField, StyledStatusMessage, FlexBreak } from './styled';
 import { useState } from 'react';
 import { CalculateButton } from '../Buttons/CalculateButton';
 import Clock from '../Clock';
 import { ResetButton } from '../Buttons/ResetButton';
 import { useRatesData } from '../useRatesData';
-// import LoadingSpinner from './Spinner';
+import { Spinner } from './Spinner';
 
 const Form = ({ footer }) => {
     const [inCurrency, setInCurrency] = useState("EUR");
@@ -20,7 +20,7 @@ const Form = ({ footer }) => {
     const calculate = () => {
         setResult((rates[outCurrency] / rates[inCurrency] * amount))
     };
-    // -------------------------------------------------------------
+    // --------------------------old code------------------------------
     // const calculate = () => {
     //     setResult(amount * currencies.find(currency => currency.short === inCurrency).rate
     //         /
@@ -55,16 +55,15 @@ const Form = ({ footer }) => {
         >
             <Clock />
             {status === "loading" ? (
-                < StatusMessage >
+                < StyledStatusMessage >
                     Loading
-                    {/* <LoadingSpinner /> */}
-                </StatusMessage>
-
+                    <FlexBreak />
+                    <Spinner />
+                </StyledStatusMessage>
             ) : status === "error" ? (
-                < StatusMessage >
+                < StyledStatusMessage >
                     Something went wrong. Please try again later.
-                </StatusMessage>
-
+                </StyledStatusMessage>
             ) : (
                 <>
                     <StyledFieldset Input>
