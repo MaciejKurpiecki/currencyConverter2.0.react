@@ -1,27 +1,37 @@
-import { currencies } from '../currencies';
 import { StyledForm, StyledFieldset, StyledLegend, StyledInputField } from './styled';
 import { useState } from 'react';
 import { CalculateButton } from '../Buttons/CalculateButton';
 import Clock from '../Clock';
 import { ResetButton } from '../Buttons/ResetButton';
+import { useRatesData } from './useRatesData';
 
 const Form = ({ footer }) => {
-    const [inCurrency, setInCurrency] = useState(currencies[0].short);
-    const [outCurrency, setOutCurrency] = useState(currencies[0].short);
+    const [inCurrency, setInCurrency] = useState("EUR");
+    const [outCurrency, setOutCurrency] = useState("EUR");
     const [amount, setAmount] = useState("");
     const [result, setResult] = useState("");
     const [outCurrencyShort, setOutCurrencyShort] = useState("");
+    const {
+        rates,
+        date,
+        status,
+    } = useRatesData();
 
     const calculate = () => {
-        setResult(amount * currencies.find(currency => currency.short === inCurrency).rate
-            /
-            currencies.find(currency => currency.short === outCurrency).rate)
+        setResult((rates[outCurrency] / rates[inCurrency] * amount))
     };
+        // -------------------------------------------------------------
+    // const calculate = () => {
+    //     setResult(amount * currencies.find(currency => currency.short === inCurrency).rate
+    //         /
+    //         currencies.find(currency => currency.short === outCurrency).rate)
+    // };
+    
     const displayOutCurrencyShort = () => {
         setOutCurrencyShort(
-            currencies.find(currency => currency.short === outCurrency).short
+            [outCurrency]
         );
-    }
+    };
 
     const bindButton = () => {
         calculate();
@@ -32,7 +42,7 @@ const Form = ({ footer }) => {
         bindButton();
     };
 
-    const displayResult = result > 0 ? `${result.toFixed(2)} ${outCurrencyShort}` : "N/A";
+    const displayResult = result > 0 ? `${result.toFixed(2)} ${[outCurrencyShort]}` : "N/A";
 
     const resetForm = () => {
         setAmount("");
@@ -44,86 +54,94 @@ const Form = ({ footer }) => {
             onSubmit={onFormSubmit}
         >
             <Clock />
-            <StyledFieldset Input>
-                <StyledLegend>Input currency</StyledLegend>
-                <div>
-                    <label>
-                        <p>
-                            Select currency
-                        </p>
-                        <StyledInputField as="select"
-                            value={inCurrency}
-                            onChange={({ target }) => setInCurrency(target.value)}
-                        >
-                            {currencies.map((currency => (
-                                <option
-                                    value={currency.short}
-                                    key={currency.short}
+            {status === "loading" ? (
+                "Loading..."
+            ) : status === "error" ? (
+                "Error"
+            ) : (
+                <>
+                    <StyledFieldset Input>
+                        <StyledLegend>Input currency</StyledLegend>
+                        <div>
+                            <label>
+                                <p>
+                                    Select currency
+                                </p>
+                                <StyledInputField as="select"
+                                    value={inCurrency}
+                                    onChange={({ target }) => setInCurrency(target.value)}
                                 >
-                                    {currency.name}
-                                </option>
-                            )))}
-                        </StyledInputField>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <p>
-                            Input amount
-                        </p>
-                        <StyledInputField
-                            name="inputAmount"
-                            type="number"
-                            step="0.01"
-                            autoFocus
-                            value={amount}
-                            onChange={({ target }) => setAmount(target.value)}
-                        />
-                    </label>
-                </div>
-            </StyledFieldset>
-            <StyledFieldset Output>
-                <StyledLegend>Output currency</StyledLegend>
-                <div>
-                    <label>
-                        <p>
-                            Select currency
-                        </p>
-                        <StyledInputField
-                            as="select"
-                            value={outCurrency}
-                            onChange={({ target }) => setOutCurrency(target.value)}
-                        >
-                            {currencies.map((currency => (
-                                <option
-                                    value={currency.short}
-                                    key={currency.short}
+                                    {Object.keys(rates).map((currency => (
+                                        <option
+                                            value={currency}
+                                            key={currency}
+                                        >
+                                            {currency}
+                                        </option>
+                                    )))}
+                                </StyledInputField>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <p>
+                                    Input amount
+                                </p>
+                                <StyledInputField
+                                    name="inputAmount"
+                                    type="number"
+                                    step="0.01"
+                                    autoFocus
+                                    value={amount}
+                                    onChange={({ target }) => setAmount(target.value)}
+                                />
+                            </label>
+                        </div>
+                    </StyledFieldset>
+                    <StyledFieldset Output>
+                        <StyledLegend>Output currency</StyledLegend>
+                        <div>
+                            <label>
+                                <p>
+                                    Select currency
+                                </p>
+                                <StyledInputField
+                                    as="select"
+                                    value={outCurrency}
+                                    onChange={({ target }) => setOutCurrency(target.value)}
                                 >
-                                    {currency.name}
-                                </option>
-                            )))}
-                        </StyledInputField>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        <p>
-                            Output amount
-                        </p>
-                        <StyledInputField
-                            readOnly
-                            value={displayResult}
-                        />
-                    </label>
-                </div>
-            </StyledFieldset>
-            <CalculateButton
-            // -----For function on click!-----
-            // functionClick={bindButton}
-            />
-            <ResetButton
-                onClick={resetForm}
-            />
+                                    {Object.keys(rates).map((currency => (
+                                        <option
+                                            value={currency}
+                                            key={currency}
+                                        >
+                                            {currency}
+                                        </option>
+                                    )))}
+                                </StyledInputField>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <p>
+                                    Output amount
+                                </p>
+                                <StyledInputField
+                                    readOnly
+                                    value={displayResult}
+                                />
+                            </label>
+                        </div>
+                    </StyledFieldset>
+                    <CalculateButton
+                    // -----For function on click!-----
+                    // functionClick={bindButton}
+                    />
+                    <ResetButton
+                        onClick={resetForm}
+                    />
+                </>
+            )}
             {footer}
         </StyledForm>
     )
