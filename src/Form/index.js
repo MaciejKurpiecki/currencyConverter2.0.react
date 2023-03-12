@@ -13,20 +13,19 @@ const Form = ({ footer }) => {
     const [outCurrencyShort, setOutCurrencyShort] = useState("");
     const {
         rates,
-        date,
         status,
     } = useRatesData();
 
     const calculate = () => {
         setResult((rates[outCurrency] / rates[inCurrency] * amount))
     };
-        // -------------------------------------------------------------
+    // -------------------------------------------------------------
     // const calculate = () => {
     //     setResult(amount * currencies.find(currency => currency.short === inCurrency).rate
     //         /
     //         currencies.find(currency => currency.short === outCurrency).rate)
     // };
-    
+
     const displayOutCurrencyShort = () => {
         setOutCurrencyShort(
             [outCurrency]

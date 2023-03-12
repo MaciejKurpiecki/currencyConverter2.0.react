@@ -1,13 +1,16 @@
 import Form from './Form';
 import { Footer } from './Footer';
+import { useRatesData } from './Form/useRatesData';
 
 function App() {
-
+  const {
+    date,
+  } = useRatesData();
   return (
     <main>
       <Form
         footer={<Footer
-          date={"February 06, 2023"}
+          date={date}
         />}
       />
     </main>
