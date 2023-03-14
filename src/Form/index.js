@@ -77,14 +77,14 @@ const Form = ({ footer }) => {
                                     value={inCurrency}
                                     onChange={({ target }) => setInCurrency(target.value)}
                                 >
-                                    {Object.keys(rates).map((currency => (
+                                    {Object.keys(rates).map(currency => (
                                         <option
                                             value={currency}
                                             key={currency}
                                         >
                                             {currency}
                                         </option>
-                                    )))}
+                                    ))}
                                 </StyledInputField>
                             </label>
                         </div>
@@ -116,14 +116,14 @@ const Form = ({ footer }) => {
                                     value={outCurrency}
                                     onChange={({ target }) => setOutCurrency(target.value)}
                                 >
-                                    {Object.keys(rates).map((currency => (
+                                    {Object.keys(rates).map(currency => (
                                         <option
                                             value={currency}
                                             key={currency}
                                         >
                                             {currency}
                                         </option>
-                                    )))}
+                                    ))}
                                 </StyledInputField>
                             </label>
                         </div>
