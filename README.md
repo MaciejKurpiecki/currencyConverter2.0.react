@@ -12,6 +12,7 @@ Used technologies and conventions:
 - React js
 - styled-components
 - grid
+- Axios
 
 
 ## Available Scripts
