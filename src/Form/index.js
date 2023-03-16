@@ -55,13 +55,13 @@ const Form = ({ footer }) => {
         >
             <Clock />
             {status === "loading" ? (
-                < StyledStatusMessage >
+                <StyledStatusMessage>
                     Loading
                     <FlexBreak />
                     <Spinner />
                 </StyledStatusMessage>
             ) : status === "error" ? (
-                < StyledStatusMessage >
+                <StyledStatusMessage>
                     Something went wrong. Please try again later.
                 </StyledStatusMessage>
             ) : (
