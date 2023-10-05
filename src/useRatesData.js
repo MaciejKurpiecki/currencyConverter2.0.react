@@ -10,6 +10,10 @@ export const useRatesData = () => {
                 const currencyUrl = "https://api.exchangerate.host/latest";
                 const response = await axios.get(currencyUrl);
 
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+
                 setRatesData({
                     date: response.data.date,
                     rates: response.data.rates,
